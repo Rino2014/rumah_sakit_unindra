@@ -11,11 +11,12 @@ public class FormPemeriksaan extends javax.swing.JFrame {
     Statement st;
     ResultSet rs;
     DefaultTableModel tabmode;
+    Boolean isloading;
 
     public FormPemeriksaan() {
         initComponents();
         con = Koneksi.getKoneksi();
-
+        isloading = false;
         tampilRegistrasi(); // Memuat daftar ID Registrasi ke ComboBox
         tampilData();       // Memuat data pemeriksaan ke JTable
         autoID();           // Membuat ID Rekam Medis otomatis pertama kali
@@ -49,7 +50,7 @@ public class FormPemeriksaan extends javax.swing.JFrame {
             } else {
                 tidrekam.setText("PMR001");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace(); 
             tidrekam.setText("PMR001");
         }
@@ -57,31 +58,39 @@ public class FormPemeriksaan extends javax.swing.JFrame {
 
     // ================= AMBIL LIST ID REGISTRASI =================
         private void tampilRegistrasi() {
+                    isloading = true;
+            try {
+                if (con == null) {
+                    System.out.println("Koneksi database null");
+                    return;
+                }
 
-        try {
+                if (cidregistrasi == null) {
+                    System.out.println("Component cidregistrasi null");
+                    return;
+                }
 
-            String sql =
-            "SELECT id_registrasi FROM pendaftaran_pasien";
+                String sql = "SELECT id_registrasi FROM pendaftaran_pasien";
 
-            st = con.createStatement();
-            rs = st.executeQuery(sql);
+                st = con.createStatement();
+                rs = st.executeQuery(sql);
+                System.out.println("HERE!");
 
-            cidregistrasi.removeAllItems();
+                cidregistrasi.removeAllItems();
+                cidregistrasi.addItem("- Pilih Registrasi -");
 
-            cidregistrasi.addItem("- Pilih Registrasi -");
+                while (rs.next()) {
+                    String id = rs.getString("id_registrasi");
+                    if (id != null) {
+                        cidregistrasi.addItem(id);
+                    }
+                }
+                        isloading = false;
 
-            while (rs.next()) {
-
-                cidregistrasi.addItem(
-                rs.getString("id_registrasi"));
+            } catch (SQLException e) {
+                System.out.println(e.toString());
             }
-
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null,
-            e.getMessage());
         }
-    }
 
    // ================= TAMPIL DATA KE TABLE =================
     private void tampilData() {
@@ -135,7 +144,7 @@ public class FormPemeriksaan extends javax.swing.JFrame {
                 };
                 tabmode.addRow(data);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -971,7 +980,9 @@ tabmode = new DefaultTableModel(null, new Object[]{"ID Rekam", "Dokter", "Regist
     }//GEN-LAST:event_tnamapasienActionPerformed
 
     private void cidregistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cidregistrasiActionPerformed
-    if (cidregistrasi.getSelectedIndex() == 0) {
+        if (isloading) return;
+        
+        if (cidregistrasi.getSelectedIndex() == 0) {
 
         tidpasien.setText("");
         tnamadokter.setText("");
