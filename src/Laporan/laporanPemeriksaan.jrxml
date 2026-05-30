@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65890b09-2ae2-4d9b-8ab0-3be0ef3da5a0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pemeriksaan_dokter.`id_rekam_medis` AS pemeriksaan_dokter_id_rekam_medis,
+     pemeriksaan_dokter.`id_registrasi` AS pemeriksaan_dokter_id_registrasi,
+     pemeriksaan_dokter.`id_pasien` AS pemeriksaan_dokter_id_pasien,
+     pemeriksaan_dokter.`id_dokter` AS pemeriksaan_dokter_id_dokter,
+     pemeriksaan_dokter.`nama_dokter` AS pemeriksaan_dokter_nama_dokter,
+     pemeriksaan_dokter.`nama_pasien` AS pemeriksaan_dokter_nama_pasien,
+     pemeriksaan_dokter.`poli` AS pemeriksaan_dokter_poli,
+     pemeriksaan_dokter.`keluhan_awal` AS pemeriksaan_dokter_keluhan_awal,
+     pemeriksaan_dokter.`diagnosa` AS pemeriksaan_dokter_diagnosa,
+     pemeriksaan_dokter.`tekanan_darah` AS pemeriksaan_dokter_tekanan_darah,
+     pemeriksaan_dokter.`suhu_tubuh` AS pemeriksaan_dokter_suhu_tubuh,
+     pemeriksaan_dokter.`berat_badan` AS pemeriksaan_dokter_berat_badan,
+     pemeriksaan_dokter.`golongan_darah` AS pemeriksaan_dokter_golongan_darah,
+     pemeriksaan_dokter.`tindakan_medis` AS pemeriksaan_dokter_tindakan_medis,
+     pemeriksaan_dokter.`resep_obat` AS pemeriksaan_dokter_resep_obat,
+     pemeriksaan_dokter.`biaya_dokter` AS pemeriksaan_dokter_biaya_dokter,
+     pemeriksaan_dokter.`catatan_dokter` AS pemeriksaan_dokter_catatan_dokter
+FROM
+     `pemeriksaan_dokter` pemeriksaan_dokter]]>
+	</queryString>
+	<field name="pemeriksaan_dokter_id_rekam_medis" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_id_registrasi" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_id_pasien" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_id_dokter" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_nama_dokter" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_nama_pasien" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_poli" class="java.lang.String"/>
+	<field name="pemeriksaan_dokter_biaya_dokter" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="498" height="62" uuid="3d0c0c68-8464-4406-ab36-c9661003e702"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Rumah Sakit Unindra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="31" y="84" width="269" height="22" uuid="bc334386-e7ef-4df6-ba0c-a9c0cf16d10c"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Pemeriksaan Dokter]]></text>
+			</staticText>
+			<image>
+				<reportElement x="633" y="-73" width="219" height="209" uuid="0512314c-1b06-4381-9f56-6a623545e7ea"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="d12c66c9-f5a6-46ff-932e-656e95ca8ffa"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="100" height="15" forecolor="#736343" uuid="871d8eb1-5aa8-42d2-a0da-67f20445ab54"/>
+				<text><![CDATA[ID Rekam Medis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="100" y="0" width="100" height="15" forecolor="#736343" uuid="1cbbb3a0-53b6-4dea-9a25-62768430eea6"/>
+				<text><![CDATA[ID Registrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="0" width="100" height="15" forecolor="#736343" uuid="b0602196-782b-44a0-966e-0b8f0dbfb90b"/>
+				<text><![CDATA[ID Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="0" width="100" height="15" forecolor="#736343" uuid="3f98e65a-6a98-4319-abc1-b81d42412a00"/>
+				<text><![CDATA[ID Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="400" y="0" width="100" height="15" forecolor="#736343" uuid="02cf0bf7-2de4-4c42-af9f-d67b2833a7f7"/>
+				<text><![CDATA[Nama Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="500" y="0" width="100" height="15" forecolor="#736343" uuid="7e739e12-fd2a-459d-b8ab-484af62c2f31"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="600" y="0" width="100" height="15" forecolor="#736343" uuid="c6772280-7d13-435e-a6d5-55ad6aba48c8"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="700" y="0" width="100" height="15" forecolor="#736343" uuid="745f5cef-b988-4937-8fb4-564b2feebcd4"/>
+				<text><![CDATA[Biaya Dokter]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="3d5dd916-ed4e-4773-943c-cd5c4ac8d5cb"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="100" height="15" uuid="191623c8-109c-452c-b2ea-87843cb40f25"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_id_rekam_medis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="100" y="0" width="100" height="15" uuid="ecb9f069-a6a2-4e6c-9cb6-75be053b10a3"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_id_registrasi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="200" y="0" width="100" height="15" uuid="94cf21f5-fb5f-439c-b683-fc5ea16b9b37"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_id_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="300" y="0" width="100" height="15" uuid="2187acee-137c-4e9e-bef2-1b4f57100b70"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_id_dokter}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="400" y="0" width="100" height="15" uuid="a6a16e2e-88b9-4ce7-a42a-eb1cd2d179a9"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_nama_dokter}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="500" y="0" width="100" height="15" uuid="da2dc759-7540-4860-b502-7ce6cce96f11"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_nama_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="600" y="0" width="100" height="15" uuid="b6a0e466-9909-44a8-aa94-67fb9572b002"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_poli}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="700" y="0" width="100" height="15" uuid="7b04b095-51dd-490c-9900-b95490abeda2"/>
+					<textFieldExpression><![CDATA[$F{pemeriksaan_dokter_biaya_dokter}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="18dd40c7-775c-4794-90d1-6deba93b0e78"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="4b95db14-a96f-48a6-9a70-876ee906bd98"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="a24ea825-6b00-4bbc-a708-0adb4f5597f6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="8db56f4a-1d72-4330-bb1e-a3c6eee307f7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="e7490e31-5496-4cda-b198-ec4618c09006"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d7699d15-e07f-45c4-9d48-297904592193">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     farmasi.`id_resep` AS farmasi_id_resep,
+     farmasi.`id_registrasi` AS farmasi_id_registrasi,
+     farmasi.`nama_pasien` AS farmasi_nama_pasien,
+     farmasi.`diskon` AS farmasi_diskon,
+     farmasi.`total_bayar` AS farmasi_total_bayar,
+     farmasi.`metode_pembayaran` AS farmasi_metode_pembayaran,
+     farmasi.`tanggal_resep` AS farmasi_tanggal_resep,
+     farmasi.`obat1` AS farmasi_obat1,
+     farmasi.`obat2` AS farmasi_obat2,
+     farmasi.`obat3` AS farmasi_obat3,
+     farmasi.`obat4` AS farmasi_obat4,
+     farmasi.`id_rekam_medis` AS farmasi_id_rekam_medis,
+     farmasi.`subtotal1` AS farmasi_subtotal1,
+     farmasi.`subtotal2` AS farmasi_subtotal2,
+     farmasi.`subtotal3` AS farmasi_subtotal3,
+     farmasi.`subtotal4` AS farmasi_subtotal4
+FROM
+     `farmasi` farmasi]]>
+	</queryString>
+	<field name="farmasi_id_resep" class="java.lang.String"/>
+	<field name="farmasi_id_rekam_medis" class="java.lang.String"/>
+	<field name="farmasi_id_registrasi" class="java.lang.String"/>
+	<field name="farmasi_nama_pasien" class="java.lang.String"/>
+	<field name="farmasi_tanggal_resep" class="java.sql.Timestamp"/>
+	<field name="farmasi_diskon" class="java.lang.Integer"/>
+	<field name="farmasi_total_bayar" class="java.lang.String"/>
+	<field name="farmasi_metode_pembayaran" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="520" height="62" uuid="33e1a407-739c-40df-9675-85d45e39532e"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Rumah Sakit Unnindra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="12" y="84" width="210" height="22" uuid="d0d4a2f7-3699-4195-8088-8b349a16d0f5"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Transaksi Farmasi]]></text>
+			</staticText>
+			<image>
+				<reportElement x="633" y="-73" width="219" height="209" uuid="6a7381f0-08ad-4d20-98ea-0bf91d5ea3b2"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="5f716495-0824-41bf-bb19-9f0a40bd1803"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="100" height="15" forecolor="#736343" uuid="df47ab38-abb2-47b1-87c6-599015aae4b9"/>
+				<text><![CDATA[ID Resep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="100" y="0" width="100" height="15" forecolor="#736343" uuid="0bfa83c0-5ee6-4e88-852d-fe0d6db87f28"/>
+				<text><![CDATA[ID Rekam Medis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="0" width="100" height="15" forecolor="#736343" uuid="39c5bf65-9281-4943-8b7e-444019a5d0a8"/>
+				<text><![CDATA[ID Registrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="0" width="100" height="15" forecolor="#736343" uuid="64386bb3-1388-48c6-ba8d-963d1a07d768"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="400" y="0" width="100" height="15" forecolor="#736343" uuid="88444784-decc-487e-8717-f3560d20dbea"/>
+				<text><![CDATA[Tanggal Resep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="500" y="0" width="68" height="15" forecolor="#736343" uuid="e5f56cf7-6431-41e2-934d-3235d82827d9"/>
+				<text><![CDATA[Diskon %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="600" y="0" width="100" height="15" forecolor="#736343" uuid="afb5dbb1-060e-4ef2-8a2c-cad75ec1d468"/>
+				<text><![CDATA[Biaya Obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="700" y="0" width="100" height="15" forecolor="#736343" uuid="1181e91c-3693-4877-97e8-4e9b15198be4"/>
+				<text><![CDATA[Metode Pembayaran]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="3d72d527-8162-4062-9110-e7a8df0a3f04"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="100" height="15" uuid="b87a8011-c57d-4327-87c6-28c3393bcfee"/>
+					<textFieldExpression><![CDATA[$F{farmasi_id_resep}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="100" y="0" width="100" height="15" uuid="fd627948-380f-41ca-b5c8-38b69d1ddfe1"/>
+					<textFieldExpression><![CDATA[$F{farmasi_id_rekam_medis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="200" y="0" width="100" height="15" uuid="e49d3ff4-0da6-4b9f-b45e-e2326a82ef5c"/>
+					<textFieldExpression><![CDATA[$F{farmasi_id_registrasi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="300" y="0" width="100" height="15" uuid="aa39c587-3e9a-42e4-beca-47d93e1b2b61"/>
+					<textFieldExpression><![CDATA[$F{farmasi_nama_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="400" y="0" width="100" height="15" uuid="8ed474aa-b2c6-4792-8091-033474c76500"/>
+					<textFieldExpression><![CDATA[$F{farmasi_tanggal_resep}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="500" y="0" width="68" height="15" uuid="9d3575b6-578d-45b4-8843-bda7044f1c20"/>
+					<textFieldExpression><![CDATA[$F{farmasi_diskon}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="600" y="0" width="100" height="15" uuid="737e3de1-d592-4d73-ae68-3253e2c22041"/>
+					<textFieldExpression><![CDATA[$F{farmasi_total_bayar}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="700" y="0" width="100" height="15" uuid="c8616d30-5609-4dfb-b408-a045844c0763"/>
+					<textFieldExpression><![CDATA[$F{farmasi_metode_pembayaran}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="843c4c3e-5244-4b64-9656-ae2ef6e494fc"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="231b6b73-cd6b-4a45-a832-26a78a84d947"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="8384e8c4-636e-4ab2-9600-c3ccfe1e2c5b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="42e7b4ce-b155-4828-96f3-f6ec454b0e3f"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="99ebb76a-73c2-4d4c-a155-09c06d6d2ace"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

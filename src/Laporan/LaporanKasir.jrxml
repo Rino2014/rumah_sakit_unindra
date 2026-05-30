@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d302489f-ee65-49f6-89f2-9318e6bdc339">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     kasir.`id_kasir` AS kasir_id_kasir,
+     kasir.`id_registrasi` AS kasir_id_registrasi,
+     kasir.`id_pasien` AS kasir_id_pasien,
+     kasir.`id_rawat_inap` AS kasir_id_rawat_inap,
+     kasir.`biaya_dokter` AS kasir_biaya_dokter,
+     kasir.`biaya_obat` AS kasir_biaya_obat,
+     kasir.`id_resep` AS kasir_id_resep,
+     kasir.`biaya_kamar` AS kasir_biaya_kamar,
+     kasir.`total_bayar` AS kasir_total_bayar,
+     kasir.`metode_pembayaran` AS kasir_metode_pembayaran,
+     kasir.`id_rekam_medis` AS kasir_id_rekam_medis,
+     kasir.`nama_pasien` AS kasir_nama_pasien
+FROM
+     `kasir` kasir]]>
+	</queryString>
+	<field name="kasir_id_kasir" class="java.lang.String"/>
+	<field name="kasir_id_rekam_medis" class="java.lang.String"/>
+	<field name="kasir_id_rawat_inap" class="java.lang.String"/>
+	<field name="kasir_id_pasien" class="java.lang.String"/>
+	<field name="kasir_id_resep" class="java.lang.String"/>
+	<field name="kasir_nama_pasien" class="java.lang.String"/>
+	<field name="kasir_biaya_dokter" class="java.lang.Integer"/>
+	<field name="kasir_biaya_obat" class="java.lang.Integer"/>
+	<field name="kasir_biaya_kamar" class="java.lang.Integer"/>
+	<field name="kasir_total_bayar" class="java.lang.Integer"/>
+	<field name="kasir_metode_pembayaran" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="1" y="0" width="503" height="62" uuid="0538063c-e1b5-4c28-8cc1-7ce61661c080"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Rumah Sakit Unindra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="72" y="86" width="196" height="22" uuid="3697b30c-90da-42ca-bcc9-29688956923a"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Kasir]]></text>
+			</staticText>
+			<image>
+				<reportElement x="633" y="-73" width="219" height="209" uuid="ed87c1b0-570b-4c2b-a49a-bad7b5536b2b"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="b70d164f-0a64-4c8f-b219-8db95a9d8e5b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="72" height="15" forecolor="#736343" uuid="7901fe5c-7b5c-4a21-8c88-7a90757738dd"/>
+				<text><![CDATA[ID Kasir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="72" y="0" width="72" height="15" forecolor="#736343" uuid="b9464fda-c6cb-41f3-8342-a166ce7c401c"/>
+				<text><![CDATA[ID Rekam Medis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="144" y="0" width="72" height="15" forecolor="#736343" uuid="9c3e5fa6-300c-48c2-a3ed-4fc269a64e76"/>
+				<text><![CDATA[ID Rawat Inap]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="216" y="0" width="72" height="15" forecolor="#736343" uuid="84ba47c4-c4e5-4088-b66b-6caa6b6683c0"/>
+				<text><![CDATA[ID Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="288" y="0" width="72" height="15" forecolor="#736343" uuid="b74ba71b-a67d-4899-9dd3-706eb2e796dc"/>
+				<text><![CDATA[ID Resep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="360" y="0" width="72" height="15" forecolor="#736343" uuid="4539305e-1c58-46a0-8ca7-d3ec5636651b"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="432" y="0" width="72" height="15" forecolor="#736343" uuid="657a3263-07c8-4eaf-8ee4-f2a47ab129b1"/>
+				<text><![CDATA[Biaya Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="504" y="0" width="72" height="15" forecolor="#736343" uuid="99779aad-3f2f-41af-adab-c0fa2747ffb4"/>
+				<text><![CDATA[Biaya Obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="576" y="0" width="72" height="15" forecolor="#736343" uuid="754ffb23-832d-4216-9139-c10055c7cd9c"/>
+				<text><![CDATA[Biaya Inap]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="648" y="0" width="72" height="15" forecolor="#736343" uuid="a88cf0e7-ded7-4d5f-a969-722c591839fa"/>
+				<text><![CDATA[Total Biaya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="720" y="0" width="72" height="15" forecolor="#736343" uuid="ad82c0b7-33b0-42cf-8ea2-ea863eb47e16"/>
+				<text><![CDATA[Metode Bayar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="69fbe6ee-0e2e-4e53-ac23-55e2c7766d48"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="72" height="15" uuid="0af627f0-f128-48c7-91df-96725dd17464"/>
+					<textFieldExpression><![CDATA[$F{kasir_id_kasir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="72" y="0" width="72" height="15" uuid="5bd6cf29-9a60-4689-89ae-99fedd4debb4"/>
+					<textFieldExpression><![CDATA[$F{kasir_id_rekam_medis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="144" y="0" width="72" height="15" uuid="82056a12-0d44-497d-a340-b4b7b64ac856"/>
+					<textFieldExpression><![CDATA[$F{kasir_id_rawat_inap}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="216" y="0" width="72" height="15" uuid="ecdd83db-dcfc-4e26-8120-c6df8c97a53c"/>
+					<textFieldExpression><![CDATA[$F{kasir_id_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="288" y="0" width="72" height="15" uuid="734bb6a8-eb07-4868-b794-aca79f828215"/>
+					<textFieldExpression><![CDATA[$F{kasir_id_resep}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="360" y="0" width="72" height="15" uuid="1fc350d5-aa4d-4fbd-9a53-66279ee6192e"/>
+					<textFieldExpression><![CDATA[$F{kasir_nama_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="432" y="0" width="72" height="15" uuid="ae59c551-4879-4481-8522-16ff5805b26c"/>
+					<textFieldExpression><![CDATA[$F{kasir_biaya_dokter}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="504" y="0" width="72" height="15" uuid="9819f150-985f-4d72-9fc9-0958355bb182"/>
+					<textFieldExpression><![CDATA[$F{kasir_biaya_obat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="576" y="0" width="72" height="15" uuid="6e9903ea-c2ce-4cc7-8003-3ba240ad74d8"/>
+					<textFieldExpression><![CDATA[$F{kasir_biaya_kamar}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="648" y="0" width="72" height="15" uuid="a1a25157-e497-4e54-a517-38e0501c1e25"/>
+					<textFieldExpression><![CDATA[$F{kasir_total_bayar}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="720" y="0" width="72" height="15" uuid="0e436611-5a4d-466a-b68e-196b9e30fe4d"/>
+					<textFieldExpression><![CDATA[$F{kasir_metode_pembayaran}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="0e9fb3ff-3c63-4e09-9d28-fa5f603358c2"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="5f0c2a87-7fe4-49b5-a43c-f89929a090ef"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="cb4f5212-02f7-4a6d-aa47-71dce9e9d874"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="64d0c89c-79f4-4f51-a0fe-2692f8717d74"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="d774bb25-ea3f-46ac-8397-eebad3f2f955"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
