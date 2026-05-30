@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="38dc7fe4-ffc2-40ef-aa1f-84a027d0e71f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pendaftaran_pasien.`id_registrasi` AS pendaftaran_pasien_id_registrasi,
+     pendaftaran_pasien.`tanggal_kunjungan` AS pendaftaran_pasien_tanggal_kunjungan,
+     pendaftaran_pasien.`id_pasien` AS pendaftaran_pasien_id_pasien,
+     pendaftaran_pasien.`nama_pasien` AS pendaftaran_pasien_nama_pasien,
+     pendaftaran_pasien.`tempat_lahir` AS pendaftaran_pasien_tempat_lahir,
+     pendaftaran_pasien.`tanggal_lahir` AS pendaftaran_pasien_tanggal_lahir,
+     pendaftaran_pasien.`jenis_kelamin` AS pendaftaran_pasien_jenis_kelamin,
+     pendaftaran_pasien.`no_telepon` AS pendaftaran_pasien_no_telepon,
+     pendaftaran_pasien.`alamat` AS pendaftaran_pasien_alamat,
+     pendaftaran_pasien.`poli` AS pendaftaran_pasien_poli,
+     pendaftaran_pasien.`id_dokter` AS pendaftaran_pasien_id_dokter,
+     pendaftaran_pasien.`nama_dokter` AS pendaftaran_pasien_nama_dokter,
+     pendaftaran_pasien.`jenis_pembayaran` AS pendaftaran_pasien_jenis_pembayaran,
+     pendaftaran_pasien.`keluhan_awal` AS pendaftaran_pasien_keluhan_awal
+FROM
+     `pendaftaran_pasien` pendaftaran_pasien]]>
+	</queryString>
+	<field name="pendaftaran_pasien_id_registrasi" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_tanggal_kunjungan" class="java.sql.Date"/>
+	<field name="pendaftaran_pasien_id_pasien" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_nama_pasien" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_tempat_lahir" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_tanggal_lahir" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_jenis_kelamin" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_no_telepon" class="java.lang.String"/>
+	<field name="pendaftaran_pasien_alamat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="532" height="62" uuid="34fd7b09-4126-4991-81c3-c5d848cb6ae4"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Rumah Sakit Unindra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="1" y="92" width="245" height="22" uuid="8564c54d-8617-4ca7-a363-33047e83ba92"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Laporan Pendaftaran Pasien]]></text>
+			</staticText>
+			<image>
+				<reportElement x="633" y="-73" width="219" height="209" uuid="0afd753d-69b8-4265-8f7e-1e7d0b70cf00"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="24c2436f-e6ad-4464-b80a-1d425a530000"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="89" height="15" forecolor="#736343" uuid="03e2ceae-f4ad-4558-a9d7-d0fe75828d79"/>
+				<text><![CDATA[ID Registrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="89" y="0" width="89" height="15" forecolor="#736343" uuid="0aba9ea5-98e4-41b0-b16f-41876f042754"/>
+				<text><![CDATA[Tanggal Pendaftarann]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="178" y="0" width="89" height="15" forecolor="#736343" uuid="3abdcb56-c092-43bd-b32c-baf2f7479f9a"/>
+				<text><![CDATA[ID Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="267" y="0" width="89" height="15" forecolor="#736343" uuid="eb2e7d92-20aa-40ce-b358-d67315b093a4"/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="356" y="0" width="89" height="15" forecolor="#736343" uuid="aac6b48f-a118-45fd-8a49-becd4bbb279a"/>
+				<text><![CDATA[Tempat Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="445" y="0" width="89" height="15" forecolor="#736343" uuid="e63952c7-ef93-417f-8507-1612f1102178"/>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="534" y="0" width="89" height="15" forecolor="#736343" uuid="5d066c42-3373-4eda-9d95-b656c0301704"/>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="623" y="0" width="89" height="15" forecolor="#736343" uuid="c36cc4f7-e891-4513-bb7f-dcdfd9555436"/>
+				<text><![CDATA[No. Telepon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="712" y="0" width="89" height="15" forecolor="#736343" uuid="4dda6f25-a900-474f-8a17-aed5c1e79fcf"/>
+				<text><![CDATA[Tempat Tinggal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="f904f7f6-cb06-4a4d-81f1-2be522b06b9c"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="89" height="15" uuid="316d0ed2-6209-4560-9ef1-bb45b79b57a0"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_id_registrasi}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="89" y="0" width="89" height="15" uuid="3b6a7e2d-0320-4c57-9587-c023b52efcd3"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_tanggal_kunjungan}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="178" y="0" width="89" height="15" uuid="ab76649f-c959-49d4-a8e5-1d7ca46b57f5"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_id_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="267" y="0" width="89" height="15" uuid="66457bc7-1384-4791-b398-96b3e2d41802"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_nama_pasien}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="356" y="0" width="89" height="15" uuid="d6de61af-2bcd-4789-a10a-41fd3a7b7c07"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_tempat_lahir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="445" y="0" width="89" height="15" uuid="05bce9c6-321c-47f9-a47d-222a088184e3"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_tanggal_lahir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="534" y="0" width="89" height="15" uuid="b2dc1516-8a8e-4074-8803-d9b0197830a0"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_jenis_kelamin}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="623" y="0" width="89" height="15" uuid="cdb1b7d9-25c4-4fd3-9220-c391adc123b4"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_no_telepon}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="712" y="0" width="89" height="15" uuid="d2bf53ba-3c94-4406-bf9f-370b83911ee6"/>
+					<textFieldExpression><![CDATA[$F{pendaftaran_pasien_alamat}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="9d399766-d0e7-4250-b3ea-15ee65524795"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="540be566-dde6-4e9c-8222-12804ed14194"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="ea011858-d642-419c-8c7a-749448deaa4d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="f839756d-7af9-40fd-a857-be648385a2c4"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="3c0ffaf9-0ae1-4470-b5d7-8005cc47ed55"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
